@@ -7,67 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="368dp"
-        android:layout_marginBottom="684dp"
+        android:layout_width="23dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="691dp"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="102dp"
-        android:layout_height="46dp"
-        app:srcCompat="@drawable/butterfly1"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="118dp"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="114dp"
-        android:layout_height="163dp"
-        app:srcCompat="@drawable/butteerfly2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="219dp" />
+        android:layout_width="113dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginBottom="368dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/butterfly1" />
 
     <Button
-        android:id="@+id/down"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="down"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="604dp" />
-
-    <Button
-        android:id="@+id/up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="9dp"
         android:text="up"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="558dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/button3" />
 
     <Button
-        android:id="@+id/right"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="right"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="260dp"
-        tools:layout_editor_absoluteY="583dp" />
+        android:layout_marginBottom="110dp"
+        android:text="down"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3" />
 
     <Button
-        android:id="@+id/left"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="141dp"
         android:text="left"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="583dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="141dp"
+        android:text="right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.myapplication2;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,60 +15,69 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tvScore;
-    private ImageView img1;
-    private ImageView img2;
-    private Button right;
-    private Button left;
+    private TextView score;
     private Button up;
     private Button down;
-    private int count =0;
+    private Button right;
+    private Button left;
+    private ImageView blueB;
+    private int count;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvScore=findViewById(R.id.textView);
-        img1=findViewById(R.id.imageView);
-        img2=findViewById(R.id.imageView2);
-        down=findViewById(R.id.down);
-        down.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                img1.setY(img1.getY()-5);
-            }
-        });
-        up=findViewById(R.id.up);
-        up.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                img1.setY(img1.getY()+5);
-            }
-        });
-        right=findViewById(R.id.right);
+        //*****************************************************
+        count = 0;
+        score = findViewById(R.id.textView);
+        right = findViewById(R.id.button4);
         right.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                img1.setX(img1.getX()+5);
+            public void onClick(View view) {
+                blueB.setX(blueB.getX() + 20);
+                if(blueB.getX() < 28 || blueB.getX() > 228){
+                    count += 1;
+                    score.setText(count);
+                    blueB.setImageResource(R.drawable.butteerfly2);
+                }
+
             }
         });
-        left=findViewById(R.id.left);
+        left = findViewById(R.id.button3);
         left.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                img1.setX(img1.getX()-5);
+            public void onClick(View view) {
+                blueB.setX(blueB.getX() - 20);
+                if (blueB.getX() < 28 || blueB.getX() > 228) {
+                    count += 1;
+                    score.setText(count);
+                    blueB.setImageResource(R.drawable.butteerfly2);
+                }
+            }
+
+            ;
+        });
+        up = findViewById(R.id.button);
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blueB.setY(blueB.getY() + 20);
+                if (blueB.getY() < 228 || blueB.getY() > 648)
+                    count += 1;
+                score.setText(count);
+                blueB.setImageResource(R.drawable.butteerfly2);
             }
         });
-        if((img1.getX()>90 || img1.getX()<10) || (img1.getY()>90) || img1.getY()<10){
-            count+=1;
-            img1.setImageResource(R.drawable.butteerfly2);
-        }
-
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        down = findViewById(R.id.button2);
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blueB.setY(blueB.getY() - 20);
+                if (blueB.getY() < 228 || blueB.getY() > 648) {
+                    count += 1;
+                    score.setText(count);
+                    blueB.setImageResource(R.drawable.butteerfly2);
+                }
+            }
         });
-    }
-}
+    }}
