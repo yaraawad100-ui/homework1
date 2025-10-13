@@ -9,12 +9,13 @@
 
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="23dp"
-        android:layout_height="24dp"
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="691dp"
         android:text="0"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

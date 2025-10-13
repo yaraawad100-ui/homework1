@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,24 +22,26 @@ public class MainActivity extends AppCompatActivity {
     private Button right;
     private Button left;
     private ImageView blueB;
-    private int count;
+    final int [] lives = {5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //*****************************************************
-        count = 0;
-        score = findViewById(R.id.textView);
+        //**********************
+        score = findViewById(R.id.tvScore);
+        score.setText("Lives : " + lives[0]+" ");
+        blueB=findViewById(R.id.imageView);
         right = findViewById(R.id.button4);
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 blueB.setX(blueB.getX() + 20);
-                if(blueB.getX() < 28 || blueB.getX() > 228){
-                    count += 1;
-                    score.setText(count);
+                Toast.makeText(MainActivity.this,blueB.getX()+", "+blueB.getY(),  Toast.LENGTH_SHORT).show();
+                if(blueB.getX() < 50 || blueB.getX() > 100){
                     blueB.setImageResource(R.drawable.butteerfly2);
+                    lives[0]--;
+                    score.setText("Lives : " + lives[0]+" ");
                 }
 
             }
@@ -48,10 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 blueB.setX(blueB.getX() - 20);
-                if (blueB.getX() < 28 || blueB.getX() > 228) {
-                    count += 1;
-                    score.setText(count);
+                if (blueB.getX() < 50 || blueB.getX() > 100) {
                     blueB.setImageResource(R.drawable.butteerfly2);
+                    lives[0]--;
+                    score.setText("Lives : " + lives[0]+" ");
+                }
+                if(lives[0] == 0){
+                    finish();
+                    System.exit(0);
                 }
             }
 
@@ -61,22 +68,30 @@ public class MainActivity extends AppCompatActivity {
         up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                blueB.setY(blueB.getY() + 20);
-                if (blueB.getY() < 228 || blueB.getY() > 648)
-                    count += 1;
-                score.setText(count);
-                blueB.setImageResource(R.drawable.butteerfly2);
+                blueB.setY(blueB.getY() - 20);
+                if (blueB.getY() < 100 || blueB.getY() > 500){
+                    blueB.setImageResource(R.drawable.butteerfly2);
+                lives[0]--;
+                score.setText("Lives : " + lives[0]+" ");}
+                if(lives[0] == 0){
+                    finish();
+                    System.exit(0);
+                }
             }
         });
         down = findViewById(R.id.button2);
         down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                blueB.setY(blueB.getY() - 20);
-                if (blueB.getY() < 228 || blueB.getY() > 648) {
-                    count += 1;
-                    score.setText(count);
+                blueB.setY(blueB.getY() + 20);
+                if (blueB.getY() < 100 || blueB.getY() > 500) {
                     blueB.setImageResource(R.drawable.butteerfly2);
+                    lives[0]--;
+                    score.setText("Lives : " + lives[0]+" ");
+                }
+                if(lives[0] == 0){
+                    finish();
+                    System.exit(0);
                 }
             }
         });
